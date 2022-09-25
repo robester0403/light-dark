@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [theme, setTheme] = useState(true);
+
+  const toggleTheme = () => {
+    setTheme(!theme);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main className="layout-wrapper">
+        <div className="switch-container">
+          <label className="switch">
+            <input type="checkbox" onClick={toggleTheme} />
+            <span className="slider round"></span>
+          </label>
+        </div>
+        <div className={theme ? "light-theme-box" : "dark-theme-box"}>box</div>
+        <div>greetingss</div>
+      </main>
+    </>
   );
 }
 
